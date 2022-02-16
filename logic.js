@@ -1,3 +1,9 @@
+//Page Scroll
+new fullpage("#fullpage", {
+  sectionsColor: ["#000", "#000"],
+});
+
+//GSAP Code
 window.onresize = window.onload = function () {
   gsap.set(".m1_stage", { x: "50vw", opacity: 1 });
 };
