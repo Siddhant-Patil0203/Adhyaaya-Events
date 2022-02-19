@@ -45,4 +45,240 @@ html {
   margin: 0%;
   font-size: 1.3rem;
   font-weight: 700;
+  z-index: 5;
+}
+
+/*********** 3events cards ************/
+@import url("https://fonts.googleapis.com/css?family=Exo:700");
+@import url("https://fonts.googleapis.com/css?family=Abel");
+.eventscards {
+  /* -webkit-transform: perspective(900px);
+  -webkit-transform-style: preserve-3d; */
+  position: relative;
+  z-index: 5;
+}
+
+.cardss {
+  -webkit-transform: perspective(1400px);
+  -webkit-transform-style: preserve-3d;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  padding-top: 45px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.main2 {
+  position: absolute;
+  z-index: 0;
+}
+.title1 {
+  width: 100%;
+  text-align: center;
+}
+.title1 h1 {
+  font-size: 50px;
+  font-family: "revampedregular";
+  font-weight: 100;
+  margin: 0px;
+  padding-top: 80px;
+  color: white;
+  position: relative;
+  text-shadow: 2px 2px 10px aliceblue;
+}
+.card1 {
+  text-align: center;
+  position: relative;
+  /* left: 15vw; */
+  width: 300px;
+  height: 400px;
+  margin: 10px;
+  background: linear-gradient(rgb(225, 150, 58), rgb(227, 144, 91));
+  transition: 0.6s;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  transform: rotatex(75deg) translatey(-200px) translatez(-100px);
+  box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.addon {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  padding-top: 60px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.addon img {
+  width: 50px;
+  height: 50px;
+}
+
+.card1:hover {
+  transform: rotatex(0deg);
+  transform: rotatez(0deg);
+  transition: 0.6s;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  box-shadow: 0px 10px 20px rgb(225, 150, 58);
+}
+.card1 img {
+  transform: translateY(15px);
+  width: 160px;
+  height: 150px;
+}
+.cards_heads {
+  font-size: 25px;
+  font-family: "Abel", sans-serif;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 2px rgb(255, 255, 255);
+  transform: translatey(10px);
+}
+
+.card_para {
+  font-family: "Abel", sans-serif;
+  color: white;
+  text-align: center;
+  width: 250px;
+  margin: 0px;
+  /* transform: translatex(12px); */
+}
+
+.card2 {
+  text-align: center;
+  position: relative;
+  /* left: 43vw; */
+  width: 300px;
+  height: 400px;
+  margin: 10px;
+  background: linear-gradient(rgb(93, 94, 170), rgb(93, 66, 103));
+  border-radius: 15px;
+  animation: animate 1s linear infinite;
+  transition: 0.6s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  transform: rotatex(75deg) translatey(-200px) translatez(-100px);
+  box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
+}
+.card2:hover {
+  transform: rotatex(0deg);
+  transition: 0.6s;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  box-shadow: 0px 10px 20px rgb(93, 94, 170);
+}
+.card2 img {
+  transform: translateY(15px);
+  width: 200px;
+  height: 180px;
+}
+.card2 h3 {
+  margin: 15px 0px 20px 0px;
+}
+.card3 {
+  text-align: center;
+  position: relative;
+  /* right: 15vw; */
+  width: 300px;
+  height: 400px;
+  margin: 10px;
+  background: linear-gradient(#ff5252, #b33939);
+  border-radius: 15px;
+  transition: 0.6s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  transform: rotatex(75deg) translatey(-200px) translatez(-100px);
+  box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
+}
+.card3:hover {
+  transform: rotatex(0deg);
+  transition: 0.6s;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  box-shadow: 0px 10px 20px #b33939;
+}
+.card3 img {
+  transform: translateY(15px);
+  width: 230px;
+  height: 150px;
+}
+
+.registration_page {
+  text-decoration: none;
+  border-radius: 15px;
+  color: aliceblue;
+  margin: 20px;
+  background-color: rgb(44, 168, 85);
+  padding: 8px;
+}
+
+.registration_page:hover {
+  background-color: aliceblue;
+  color: rgb(192, 38, 102);
+}
+
+/**** animating addons ****/
+.addonimg {
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+}
+
+.addonimg {
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+}
+@-webkit-keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+/***** Technical Page *****/
+.title2 {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title2 h1 {
+  font-size: 50px;
+  font-family: "revampedregular";
+  font-weight: 100;
+  margin: 0px;
+  padding-top: 65px;
+  color: white;
+  position: relative;
+  text-shadow: 2px 2px 10px aliceblue;
+}
+
+.title2 img {
+  width: 50px;
+  height: 50px;
+  margin: 65px 30px 0px 30px;
 }
