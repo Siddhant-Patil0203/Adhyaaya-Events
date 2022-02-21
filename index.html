@@ -23,8 +23,11 @@
   </head>
   <body>
     
-    <div id="fullpage">
-    <div class="page section">
+
+
+    <div id="well" class="well">
+    <!-- Page 1 -- Events Gallaxy -->
+    <div class="page">
 
      
     <svg class="main1" width="100%" height="100%">
@@ -58,7 +61,7 @@
         <g class="m1_cGroup">
           <!-- Respwan -->
           <g class="m1OrbBlank">
-            <a href="https://adhyaaya.org" alt="respwan">
+            <a href="#technical_events" alt="respwan">
               <circle cx="0" cy="50" r="0" fill="#1290ff" />
               <image xlink:href="./img/respwan.png" width="95" height="95" />
             </a>
@@ -66,7 +69,7 @@
 
           <!-- CricBash -->
           <g class="m1OrbBlank11">
-            <a href="https://adhyaaya.org" alt="Cricbash">
+            <a href="#technical_events" alt="Cricbash">
               <circle cx="0" cy="50" r="0" fill="#1290ff" />
               <image xlink:href="https://image.flaticon.com/icons/png/512/502/502195.png" width="65" height="65" />
             </a>
@@ -85,8 +88,9 @@
           <g class="m1Orb orb4b"></g>
 
           <!-- Avishkar -->
-          <g class="m1Orb orb4b">
-            <a href="https://adhyaaya.org">
+          <a href="#technical_events"> 
+          <g class="m1Orb orb4b" onclick="cardOpenEvent(0);">
+            <!-- <a href="#technical_events"> -->
               <circle
                 cx="25"
                 cy="6"
@@ -95,7 +99,7 @@
                 stroke-width="3"
                 fill="#cc971b"
               />
-            </a>
+            <!-- </a> -->
             <path
               fill="#fff"
               opacity="0.7"
@@ -103,17 +107,18 @@
               vector-effect="non-scaling-stroke"
             />
           </g>
+        </a> 
 
           <!-- COMSA Webinar -->
           <g class="m1Orb orb41">
-            <a href="https://adhyaaya.org" alt="Comsa Webinar">
+            <a href="#technical_events" alt="Comsa Webinar">
               <image xlink:href="./img/comsa.png" width="45" height="45" />
             </a>
           </g>
 
           <!-- MUN -->
           <g class="m1Orb orb4">
-            <a href="https://adhyaaya.org">
+            <a href="#technical_events">
               <circle cx="13.5" cy="5" r="20" fill="#006bca" />
             </a>
             <path
@@ -125,9 +130,9 @@
           </g>
         </g>
         <g class="m1_cGroup">
-          <!-- Caddication -->
-          <g class="m1OrbBlank">
-            <a href="https://adhyaaya.org" alt="caddiction">
+          <!-- Caddiction -->
+          <g class="m1OrbBlank" onclick="cardOpenEvent(1);">
+            <a href="#technical_events" alt="caddiction">
               <circle cx="22" cy="23" r="26" fill="#fff" />
               <image
                 xlink:href="https://cdn.iconscout.com/icon/premium/png-256-thumb/settings-587-766948.png"
@@ -149,7 +154,7 @@
 
           <!-- Trishakti Event -->
           <g class="m1Orb orb3c">
-            <a href="https://adhyaaya.org">
+            <a href="#technical_events">
               <image
                 xlink:href="./img/trishakti.png"
                 width="65"
@@ -160,7 +165,7 @@
 
           <!-- Canva Event -->
           <g class="m1Orb orb3b">
-            <a href="https://adhyaaya.org" alt="Canva Workshop">
+            <a href="#technical_events" alt="Canva Workshop">
               <image
                 xlink:href="https://pnggrid.com/wp-content/uploads/2021/05/Canva-Logo-Transparent-1024x1024.png"
                 width="40"
@@ -172,7 +177,7 @@
 
           <!-- Vaad - Vivad -->
           <g class="m1Orb orb31">
-            <a href="https://adhyaaya.org" alt="Vaad-Vivad">
+            <a href="#technical_events" alt="Vaad-Vivad">
               <circle
                 cx="19"
                 cy="20"
@@ -191,7 +196,7 @@
 
           <!-- Born-Pyschos -->
           <g class="m1Orb orb3">
-            <a href="https://adhyaaya.org" alt="Born-Psychos">
+            <a href="#technical_events" alt="Born-Psychos">
               <circle
                 cx="23"
                 cy="24"
@@ -211,7 +216,7 @@
         <g class="m1_cGroup">
           <!-- Foodoholic -->
           <g class="m1OrbBlank">
-            <a href="https://adhyaaya.org" alt="Foodoholic">
+            <a href="#technical_events" alt="Foodoholic">
           <circle cx="-10" cy="30" r="0" fill="#653997" />
           <image xlink:href="./img/salad.png"
           width="40"
@@ -230,7 +235,7 @@
 
           <!-- Virtual Placement -->
           <g class="m1Orb orb21">
-            <a href="https://adhyaaya.org" alt="Virtual Placement">
+            <a href="#technical_events" alt="Virtual Placement">
               <circle
                 cx="25"
                 cy="6"
@@ -251,7 +256,7 @@
 
           <!-- CadoShop -->
           <g class="m1Orb orb2">
-            <a href="https://adhyaaya.org" alt="CadoShop"><circle
+            <a href="#technical_events" alt="CadoShop"><circle
               cx="18.5"
               cy="5"
               r="24.5"
@@ -295,8 +300,8 @@
           />
 
           <!-- Codeventure -->
-          <g class="m1Orb orb11">
-            <a href="https://adhyaaya.org" alt="codeventure">
+          <g class="m1Orb orb11" onclick="cardOpenEvent(2);">
+            <a href="#technical_events" alt="codeventure">
               <circle cx="0" cy="50" r="0" fill="#1290ff" />
               <image
                 xlink:href="./img/Codeventure.png"
@@ -328,14 +333,14 @@
                                              c0-0.42,0.01-0.74,0.03-0.97h-0.77c-0.35,0-0.61-0.07-0.77-0.2s-0.24-0.37-0.24-0.69C20.86,6.96,20.91,6.67,21.01,6.4z"
             />
           </g> -->
-          <g class="m1Orb orb1">
-            <a href="https://adhyaaya.org" alt="Stargaze"><circle cx="18" cy="18" r="20" fill="none" stroke="#653997" />
+          <g class="m1Orb orb1" onclick="cardOpenEvent(3);">
+            <a href="#technical_events" alt="Stargaze"><circle cx="18" cy="18" r="20" fill="none" stroke="#653997" />
             <image
               xlink:href="https://freedesignfile.com/upload/2017/08/telescope-icon-vector.png"
               width="36"
               height="36"
-            />
-          </g></a>
+            /></a>
+          </g>
         </g>
 
         <g class="m1_cGroup">
@@ -382,7 +387,9 @@
     </svg>
     <p class="scroll_down">Scroll Down!!</p>
     </div>
+    
 
+    <!-- Page 2 -- All Events -->
     <div class="page section">
 
       <!-- SVG CODE for background -->
@@ -417,7 +424,7 @@
           <h1 class="main_heading">Events </h1>
         </div>
         <div class="addon">
-          <img src="./img/non tech2.png" class="addonimg" alt="" onclick="card1();">
+          <img src="./img/non tech2.png" class="addonimg" alt="">
           <img src="./img/tech2.png" class="addonimg" alt="">
           <img src="./img/workshop_.png" class="addonimg" alt="">
         </div>
@@ -433,7 +440,7 @@
           <img src="https://lh3.googleusercontent.com/pw/AM-JKLW70PLLMPgwgq4-n1yLmM37c64cmYsWKuV5Do_2Wi8Es9Wz8C6EH618mCLkkaF40FrVRhi0RsxdFWFxTGNoNxMNXL-_B5TAe-GvfiRz9pdmnxflfO_nTBDZfxXbJ62nYIcd3HIie3y08Fip2CYwrznugg=s795-no?authuser=0" alt="">
           <h3  class="cards_heads">Technical Events</h3>
           <p class="card_para">Explore the potentials of future technocrats through its national-level tech events.</p>
-          <a class="registration_page" href="">Go to Events</a>
+          <a class="registration_page" href="#technical_events">Go to Events</a>
         </div>
         
         <div class="card3" id="card3">
@@ -446,8 +453,8 @@
       </div>  
     </div>
 
-
-    <div class="page section">
+    <!-- Page 3 -- Technical Events -->
+    <div class="page2 section" id="technical_events"> 
 
       <!-- SVG CODE for background -->
       <svg class="main2" width="100%" height="100%">
@@ -482,20 +489,53 @@
           <h1 class="main_heading">Technical Events</h1>          
         </div>
 
-        <div class="cardss2">
-
-        </div>
+          <div class="container110">
+            <div class="card-column column-0">
+              <div class="card card-color-0">
+                <div class="border"></div>
+                <img src="./img/avishkar.png" height="180px" width="150px   " style="top: -25%"/>
+                <h2>Avishkar</h2>
+                <h3>Explore</h3>
+              </div>
+              <div class="card card-color-2">
+                <div class="border"></div>
+                <img src="./img/avishkar.png" height="180px" width="150px   " style="top: -25%"/>                <h2>Caddiction</h2>
+                <h3>Explore</h3>
+              </div>
+            </div>
+            <div class="card-column column-1">
+              <div class="card card-color-1">
+                <div class="border"></div>
+                <img src="./img/avishkar.png" height="180px" width="150px   " style="top: -25%"/>                <h2>Codeventure</h2>
+                <h3>Explore</h3>
+              </div>
+              <div class="card card-color-3">
+                <div class="border"></div>
+                <img src="./img/avishkar.png" height="180px" width="150px   " style="top: -25%"/>                <h2>Stargaze</h2>
+                <h3>Explore</h3>
+              </div>
+            </div>
+          </div>
+          
+          <div id="cover11" class="cover11"></div>
+          
+          <div id="open-content" class="open-content">
+            <a href="#" id="close-content" class="close-content"><span class="x-1"></span><span class="x-2"></span></a>
+            <img id="open-content-image" src="" />
+            <div class="text" id="open-content-text">
+            </div>
+          </div>
       </div>
 
-      
     </div>
+    
   </div>
 
     <!-- JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MotionPathPlugin.min.js"></script>
-    <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+    <!-- <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script> -->
 
     <script src="./logic.js"></script>
   </body>

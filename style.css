@@ -11,6 +11,7 @@ body {
   overflow-x: hidden;
   background: #000;
   margin: 0%;
+  /* scroll-snap-align: ; */
 }
 
 html {
@@ -30,9 +31,16 @@ html {
   scrollbar-width: none; /* Firefox */
 }
 
+.well {
+  position: relative;
+  /* overflow: hidden; */
+  transition: 1s cubic-bezier(0.5, 0, 0.5, 1);
+}
+
 .page {
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
   margin: 0;
 }
@@ -281,4 +289,251 @@ html {
   width: 50px;
   height: 50px;
   margin: 65px 30px 0px 30px;
+}
+
+/* 
+** Layout, Text & Colors 
+*/
+
+p {
+  line-height: 1.5;
+}
+
+.container110 {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Cards */
+.card-column {
+  width: 50%;
+  float: left;
+  padding: 4%;
+  box-sizing: border-box;
+}
+
+.column-1,
+.column-0 {
+  padding-top: 30px;
+}
+
+.card {
+  width: 250px;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  background: #eb5160;
+  color: #fff;
+  cursor: pointer;
+  margin: 60px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.border {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  border: 1px solid #fff;
+  opacity: 0.5;
+  border-radius: 15px;
+  box-shadow: 3px 3px 10px rgb(0, 136, 255);
+}
+
+.card h2 {
+  position: relative;
+  padding: 130px 0px 10px 0px;
+  width: 100%;
+  text-align: center;
+  margin: 0px;
+  font-family: revampedregular;
+  font-weight: 100;
+  text-shadow: 2px 2px 6px rgb(0, 134, 252);
+}
+.card h3 {
+  position: relative;
+  padding: 5px 0px 10px 0px;
+  width: 90px;
+  text-align: center;
+  margin: 0px;
+  background-color: #fff;
+  color: #000;
+  margin: 10px 0px 20px 0px;
+  border-radius: 10px;
+}
+
+.card h3:hover {
+  background-color: rgb(29, 185, 89);
+  color: #fff;
+}
+
+.card > img {
+  position: absolute;
+  top: -6%;
+  left: 22%;
+}
+
+.card-color-0 {
+  background-color: #eb5160;
+}
+
+.card-color-1 {
+  background-color: #8f3985;
+}
+
+.card-color-2 {
+  background-color: #8daa91;
+}
+
+.card-color-3 {
+  background-color: #888da7;
+}
+
+/* The cover (expanding background) */
+.cover11 {
+  position: fixed;
+  background: #eb5160;
+  z-index: 100;
+  transform-origin: 50% 50%;
+}
+
+/* The open page content */
+.open-content {
+  width: 100%;
+  z-index: 110;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  height: 100vh;
+}
+
+.open-content img {
+  position: relative;
+  width: 40%;
+  margin-left: 3%;
+  margin-top: 20px;
+  z-index: 5;
+}
+
+.open-content .text {
+  background: #fff;
+  margin-top: -56%;
+  padding: 60% 5% 5% 5%;
+  width: 80%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+
+.open-content .text h1,
+.open-content .text p {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.close-content {
+  display: block;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 30px;
+  height: 30px;
+}
+
+.close-content span {
+  background: #222;
+  width: 30px;
+  height: 6px;
+  display: block;
+  position: absolute;
+  top: 14px;
+}
+
+.x-1 {
+  transform: rotate(45deg);
+}
+
+.x-2 {
+  transform: rotate(-45deg);
+}
+
+/* 
+** Transitions
+*/
+
+.card {
+  transition: opacity 200ms linear 320ms, transform 200ms ease-out 320ms;
+}
+
+.border {
+  transition: opacity 200ms linear, transform 200ms ease-out;
+}
+
+.card img {
+  transition: opacity 200ms linear 0ms, transform 200ms ease-in 0ms;
+}
+
+.card h1 {
+  transform: translate3d(20%, 0px, 0px);
+  transition: opacity 200ms linear 120ms, transform 200ms ease-in 120ms;
+}
+
+/* Clicked card */
+.card.clicked img {
+  transform: translate3d(0px, -40px, 0px);
+  opacity: 0;
+}
+
+.card.clicked .border {
+  opacity: 0;
+  transform: scale(1.3);
+}
+
+.card.out,
+.card.out img {
+  transform: translate3d(0px, -40px, 0px);
+  opacity: 0;
+}
+
+.card.out h1,
+.card.clicked h1 {
+  transform: translate3d(20%, -40px, 0px);
+  opacity: 0;
+}
+
+.cover11 {
+  transition: transform 300ms ease-in-out;
+}
+
+.open-content {
+  transition: opacity 200ms linear 0ms;
+}
+
+.open-content.open {
+  opacity: 1;
+  pointer-events: all;
+  transition-delay: 1000ms;
+}
+
+/* 
+** Media Queries
+*/
+
+@media screen and (max-width: 600px) {
+  .card-column {
+    width: 90%;
+  }
+
+  .column-1 {
+    padding-top: 0px;
+  }
+
+  .open-content img {
+    margin-top: 40px;
+  }
 }
