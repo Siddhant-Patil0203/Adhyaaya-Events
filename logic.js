@@ -452,6 +452,8 @@ function onCardClick(card, i) {
     // document.getElementById("workshops").style.display = "none";
   } else if (i >= 4 && i <= 11) openContent2.className += " open";
   else openContent3.className += " open";
+
+  body.style.overflow = "hidden";
 }
 
 /*
@@ -655,6 +657,8 @@ function onCloseClick() {
   animateCoverBack(currentCard);
   // animate in other cards
   animateOtherCards(currentCard, false);
+
+  body.style.overflow = "scroll";
 }
 
 function animateOtherCards(card, out) {
@@ -711,6 +715,8 @@ function cardOpenEvent(i) {
   if (i < 4) openContent.className += " open";
   else if (i >= 4 && i <= 11) openContent2.className += " open";
   else openContent3.className += " open";
+
+  body.style.overflow = "hidden";
   closeContent.addEventListener("click", function () {
     openContent.className = openContent.className.replace(" open", "");
     // animate the cover back to the original position card and size
@@ -743,6 +749,7 @@ function cardOpenEvent(i) {
 
     // animate in other cards
     animateOtherCards(cards[i], false);
+    body.style.overflow = "scroll";
   });
   closeContent2.addEventListener("click", function () {
     openContent2.className = openContent2.className.replace(" open", "");
@@ -776,6 +783,7 @@ function cardOpenEvent(i) {
 
     // animate in other cards
     animateOtherCards(cards[i], false);
+    body.style.overflow = "scroll";
   });
   closeContent3.addEventListener("click", function () {
     openContent3.className = openContent3.className.replace(" open", "");
@@ -809,5 +817,6 @@ function cardOpenEvent(i) {
 
     // animate in other cards
     animateOtherCards(cards[i], false);
+    body.style.overflow = "scroll";
   });
 }
