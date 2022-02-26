@@ -360,11 +360,21 @@ gsap
 var cards,
   nCards,
   cover,
+  cover2,
+  cover3,
   openContent,
   openContentText,
   pageIsOpen = false,
   openContentImage,
   closeContent,
+  openContent2,
+  openContentText2,
+  openContentImage2,
+  closeContent2,
+  openContent3,
+  openContentText3,
+  openContentImage3,
+  closeContent3,
   windowWidth,
   windowHeight,
   currentCard;
@@ -383,10 +393,20 @@ function selectElements() {
   (cards = document.getElementsByClassName("card")),
     (nCards = cards.length),
     (cover = document.getElementById("cover11")),
+    (cover2 = document.getElementById("cover12")),
+    (cover3 = document.getElementById("cover13")),
     (openContent = document.getElementById("open-content")),
     (openContentText = document.getElementById("open-content-text")),
-    (openContentImage = document.getElementById("open-content-image"));
-  closeContent = document.getElementById("close-content");
+    (openContentImage = document.getElementById("open-content-image")),
+    (openContent2 = document.getElementById("open-content2")),
+    (openContentText2 = document.getElementById("open-content-text2")),
+    (openContentImage2 = document.getElementById("open-content-image2")),
+    (openContent3 = document.getElementById("open-content3")),
+    (openContentText3 = document.getElementById("open-content-text3")),
+    (openContentImage3 = document.getElementById("open-content-image3")),
+    (closeContent = document.getElementById("close-content")),
+    (closeContent2 = document.getElementById("close-content2")),
+    (closeContent3 = document.getElementById("close-content3"));
 }
 
 /* Attaching three event listeners here:
@@ -399,6 +419,8 @@ function attachListeners() {
     attachListenerToCard(i);
   }
   closeContent.addEventListener("click", onCloseClick);
+  closeContent2.addEventListener("click", onCloseClick);
+  closeContent3.addEventListener("click", onCloseClick);
   window.addEventListener("resize", resize);
 }
 
@@ -417,12 +439,19 @@ function onCardClick(card, i) {
   currentCard.className += " clicked";
   // animate the card 'cover' after a 500ms delay
   setTimeout(function () {
-    animateCoverUp(currentCard);
+    animateCoverUp(currentCard, i);
   }, 500);
   // animate out the other cards
   animateOtherCards(currentCard, true);
   // add the open class to the page content
-  openContent.className += " open";
+  if (i < 4) {
+    openContent.className += " open";
+    // document.getElementById("first_page").style.display = "none";
+    // document.getElementById("all_events").style.display = "none";
+    // document.getElementById("non_technical_events").style.display = "none";
+    // document.getElementById("workshops").style.display = "none";
+  } else if (i >= 4 && i <= 11) openContent2.className += " open";
+  else openContent3.className += " open";
 }
 
 /*
@@ -434,18 +463,43 @@ function onCardClick(card, i) {
  * absolutely positioned and has no children), and there's just less
  * having to deal with z-index and other elements in the card
  */
-function animateCoverUp(card) {
+
+function animateCoverUp(card, i) {
   // get the position of the clicked card
   var cardPosition = card.getBoundingClientRect();
   // get the style of the clicked card
   var cardStyle = getComputedStyle(card);
-  setCoverPosition(cardPosition);
+  setCoverPosition(cardPosition, i);
   setCoverColor(cardStyle);
-  scaleCoverToFillWindow(cardPosition);
+  scaleCoverToFillWindow(cardPosition, i);
   // update the content of the opened page
   openContentText.innerHTML =
-    "<h1>" + card.children[2].textContent + "</h1>" + paragraphText;
+    "<h1>" +
+    card.children[2].textContent +
+    "</h1>" +
+    "<p>" +
+    card.children[4].textContent +
+    "</p>" +
+    "<a href='#'>Register</a>";
   openContentImage.src = card.children[1].src;
+  openContentText2.innerHTML =
+    "<h1>" +
+    card.children[2].textContent +
+    "</h1>" +
+    "<p>" +
+    card.children[4].textContent +
+    "</p>" +
+    "<a href='#'>Register</a>";
+  openContentImage2.src = card.children[1].src;
+  openContentText3.innerHTML =
+    "<h1>" +
+    card.children[2].textContent +
+    "</h1>" +
+    "<p>" +
+    card.children[4].textContent +
+    "</p>" +
+    "<a href='#'>Register</a>";
+  openContentImage3.src = card.children[1].src;
   setTimeout(function () {
     // update the scroll position to 0 (so it is at the top of the 'opened' page)
     window.scroll(0, 0);
@@ -470,33 +524,79 @@ function animateCoverBack(card) {
     "px, " +
     0 +
     "px, 0px)";
+  cover2.style.transform =
+    "scaleX(" +
+    1 +
+    ") scaleY(" +
+    1 +
+    ") translate3d(" +
+    0 +
+    "px, " +
+    0 +
+    "px, 0px)";
+  cover3.style.transform =
+    "scaleX(" +
+    1 +
+    ") scaleY(" +
+    1 +
+    ") translate3d(" +
+    0 +
+    "px, " +
+    0 +
+    "px, 0px)";
   setTimeout(function () {
     // set content back to empty
     openContentText.innerHTML = "";
     openContentImage.src = "";
+    openContentText2.innerHTML = "";
+    openContentImage2.src = "";
+    openContentText3.innerHTML = "";
+    openContentImage3.src = "";
     // style the cover to 0x0 so it is hidden
     cover.style.width = "0px";
     cover.style.height = "0px";
+
+    cover2.style.width = "0px";
+    cover2.style.height = "0px";
+
+    cover3.style.width = "0px";
+    cover3.style.height = "0px";
     pageIsOpen = false;
     // remove the clicked class so the card animates back in
     currentCard.className = currentCard.className.replace(" clicked", "");
   }, 301);
 }
 
-function setCoverPosition(cardPosition) {
+function setCoverPosition(cardPosition, i) {
   // style the cover so it is in exactly the same position as the card
-  cover.style.left = cardPosition.left + "px";
-  cover.style.top = cardPosition.top + "px";
-  cover.style.width = cardPosition.width + "px";
-  cover.style.height = cardPosition.height + "px";
+  if (i < 4) {
+    cover.style.left = cardPosition.left + "px";
+    cover.style.top = cardPosition.top + "px";
+    cover.style.width = cardPosition.width + "px";
+    cover.style.height = cardPosition.height + "px";
+  } else if (i >= 4 && i <= 11) {
+    cover2.style.left = cardPosition.left + "px";
+    cover2.style.top = cardPosition.top + "px";
+    cover2.style.width = cardPosition.width + "px";
+    cover2.style.height = cardPosition.height + "px";
+  } else {
+    cover3.style.left = cardPosition.left + "px";
+    cover3.style.top = cardPosition.top + "px";
+    cover3.style.width = cardPosition.width + "px";
+    cover3.style.height = cardPosition.height + "px";
+  }
 }
 
 function setCoverColor(cardStyle) {
   // style the cover to be the same color as the card
   cover.style.backgroundColor = cardStyle.backgroundColor;
+
+  cover2.style.backgroundColor = cardStyle.backgroundColor;
+
+  cover3.style.backgroundColor = cardStyle.backgroundColor;
 }
 
-function scaleCoverToFillWindow(cardPosition) {
+function scaleCoverToFillWindow(cardPosition, i) {
   // calculate the scale and position for the card to fill the page,
   var scaleX = windowWidth / cardPosition.width;
   var scaleY = windowHeight / cardPosition.height;
@@ -505,22 +605,52 @@ function scaleCoverToFillWindow(cardPosition) {
   var offsetY =
     (windowHeight / 2 - cardPosition.height / 2 - cardPosition.top) / scaleY;
   // set the transform on the cover - it will animate because of the transition set on it in the CSS
-  cover.style.transform =
-    "scaleX(" +
-    scaleX +
-    ") scaleY(" +
-    scaleY +
-    ") translate3d(" +
-    offsetX +
-    "px, " +
-    offsetY +
-    "px, 0px)";
+  if (i < 4) {
+    cover.style.transform =
+      "scaleX(" +
+      scaleX +
+      ") scaleY(" +
+      scaleY +
+      ") translate3d(" +
+      offsetX +
+      "px, " +
+      offsetY +
+      "px, 0px)";
+  } else if (i >= 4 && i <= 11) {
+    cover2.style.transform =
+      "scaleX(" +
+      scaleX +
+      ") scaleY(" +
+      scaleY +
+      ") translate3d(" +
+      offsetX +
+      "px, " +
+      offsetY +
+      "px, 0px)";
+  } else {
+    cover3.style.transform =
+      "scaleX(" +
+      scaleX +
+      ") scaleY(" +
+      scaleY +
+      ") translate3d(" +
+      offsetX +
+      "px, " +
+      offsetY +
+      "px, 0px)";
+  }
 }
 
 /* When the close is clicked */
 function onCloseClick() {
   // remove the open class so the page content animates out
   openContent.className = openContent.className.replace(" open", "");
+  openContent2.className = openContent2.className.replace(" open", "");
+  openContent3.className = openContent3.className.replace(" open", "");
+  // document.getElementById("first_page").style.display = "block";
+  // document.getElementById("all_events").style.display = "block";
+  // document.getElementById("non_technical_events").style.display = "block";
+  // document.getElementById("workshops").style.display = "block";
   // animate the cover back to the original position card and size
   animateCoverBack(currentCard);
   // animate in other cards
@@ -569,19 +699,18 @@ function resize() {
   windowHeight = window.innerHeight;
 }
 
-var paragraphText =
-  "<p>Somebody once told me the world is gonna roll me. I ain't the sharpest tool in the shed. She was looking kind of dumb with her finger and her thumb in the shape of an \"L\" on her forehead. Well the years start coming and they don't stop coming. Fed to the rules and I hit the ground running. Didn't make sense not to live for fun. Your brain gets smart but your head gets dumb. So much to do, so much to see. So what's wrong with taking the back streets? You'll never know if you don't go. You'll never shine if you don't glow.</p><p>Hey now, you're an all-star, get your game on, go play. Hey now, you're a rock star, get the show on, get paid. And all that glitters is gold. Only shooting stars break the mold.</p><p>It's a cool place and they say it gets colder. You're bundled up now, wait till you get older. But the meteor men beg to differ. Judging by the hole in the satellite picture. The ice we skate is getting pretty thin. The water's getting warm so you might as well swim. My world's on fire, how about yours? That's the way I like it and I never get bored.</p>";
-
 //? On Card Navigation Open
 function cardOpenEvent(i) {
   cards[i].className += " clicked";
   setTimeout(function () {
-    animateCoverUp(cards[i]);
+    animateCoverUp(cards[i], i);
   }, 500);
   // animate out the other cards
   animateOtherCards(cards[i], true);
   // add the open class to the page content
-  openContent.className += " open";
+  if (i < 4) openContent.className += " open";
+  else if (i >= 4 && i <= 11) openContent2.className += " open";
+  else openContent3.className += " open";
   closeContent.addEventListener("click", function () {
     openContent.className = openContent.className.replace(" open", "");
     // animate the cover back to the original position card and size
@@ -607,6 +736,72 @@ function cardOpenEvent(i) {
       // style the cover to 0x0 so it is hidden
       cover.style.width = "0px";
       cover.style.height = "0px";
+      pageIsOpen = false;
+      // remove the clicked class so the card animates back in
+      cards[i].className = cards[i].className.replace(" clicked", "");
+    }, 301);
+
+    // animate in other cards
+    animateOtherCards(cards[i], false);
+  });
+  closeContent2.addEventListener("click", function () {
+    openContent2.className = openContent2.className.replace(" open", "");
+    // animate the cover back to the original position card and size
+    var cardPosition = cards[i].getBoundingClientRect();
+    // the original card may be in a different position, because of scrolling, so the cover position needs to be reset before scaling back down
+    setCoverPosition(cardPosition);
+    scaleCoverToFillWindow(cardPosition);
+    // animate scale back to the card size and position
+    cover2.style.transform =
+      "scaleX(" +
+      1 +
+      ") scaleY(" +
+      1 +
+      ") translate3d(" +
+      0 +
+      "px, " +
+      0 +
+      "px, 0px)";
+    setTimeout(function () {
+      // set content back to empty
+      openContentText2.innerHTML = "";
+      openContentImage2.src = "";
+      // style the cover to 0x0 so it is hidden
+      cover2.style.width = "0px";
+      cover2.style.height = "0px";
+      pageIsOpen = false;
+      // remove the clicked class so the card animates back in
+      cards[i].className = cards[i].className.replace(" clicked", "");
+    }, 301);
+
+    // animate in other cards
+    animateOtherCards(cards[i], false);
+  });
+  closeContent3.addEventListener("click", function () {
+    openContent3.className = openContent3.className.replace(" open", "");
+    // animate the cover back to the original position card and size
+    var cardPosition = cards[i].getBoundingClientRect();
+    // the original card may be in a different position, because of scrolling, so the cover position needs to be reset before scaling back down
+    setCoverPosition(cardPosition);
+    scaleCoverToFillWindow(cardPosition);
+    // animate scale back to the card size and position
+    cover3.style.transform =
+      "scaleX(" +
+      1 +
+      ") scaleY(" +
+      1 +
+      ") translate3d(" +
+      0 +
+      "px, " +
+      0 +
+      "px, 0px)";
+    setTimeout(function () {
+      // set content back to empty
+      openContentText3.innerHTML = "";
+      openContentImage3.src = "";
+      // style the cover to 0x0 so it is hidden
+      cover3.style.width = "0px";
+      cover3.style.height = "0px";
       pageIsOpen = false;
       // remove the clicked class so the card animates back in
       cards[i].className = cards[i].className.replace(" clicked", "");

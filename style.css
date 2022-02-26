@@ -299,18 +299,43 @@ p {
 }
 
 .container110 {
-  max-width: 900px;
-  margin: 0 auto;
+  /* max-width: 900px; */
+  /* margin: 0 auto; */
+  /* display: flex; */
+  position: relative;
+  left: calc(100% / 2 - 315px);
+  /* display: flex; */
+}
+
+.container112 {
+  /* max-width: 900px; */
+  /* margin: 0 auto; */
+  /* display: flex; */
+  position: relative;
+  left: calc(100% / 2 - 750px);
+  /* display: flex; */
+}
+
+.container113 {
+  /* max-width: 900px; */
+  /* margin: 0 auto; */
+  /* display: flex; */
+  position: relative;
+  left: calc(100% / 2 - 500px);
+  top: 13vh;
+
+  /* display: flex; */
 }
 
 /* Cards */
 .card-column {
-  width: 50%;
+  /* width: 32%; */
   float: left;
-  padding: 4%;
+  /* padding: 4%; */
   box-sizing: border-box;
 }
 
+.column-2,
 .column-1,
 .column-0 {
   padding-top: 30px;
@@ -354,6 +379,10 @@ p {
   font-weight: 100;
   text-shadow: 2px 2px 6px rgb(0, 134, 252);
 }
+#secline {
+  padding: 105px 0px 10px 0px;
+}
+
 .card h3 {
   position: relative;
   padding: 5px 0px 10px 0px;
@@ -394,11 +423,15 @@ p {
 }
 
 /* The cover (expanding background) */
-.cover11 {
-  position: fixed;
+.cover11,
+.cover12,
+.cover13 {
+  position: absolute;
   background: #eb5160;
   z-index: 100;
   transform-origin: 50% 50%;
+  overflow: hidden;
+  height: 100%;
 }
 
 /* The open page content */
@@ -408,24 +441,30 @@ p {
   position: absolute;
   opacity: 0;
   pointer-events: none;
-  height: 100vh;
+  display: flex;
+  background: #fff;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  width: 90%;
 }
 
 .open-content img {
   position: relative;
-  width: 40%;
+  width: 50%;
+  height: 60%;
   margin-left: 3%;
-  margin-top: 20px;
+  margin-top: 80px;
   z-index: 5;
 }
 
 .open-content .text {
-  background: #fff;
-  margin-top: -56%;
+  /* background: #fff; */
+  margin-top: -55%;
   padding: 60% 5% 5% 5%;
   width: 80%;
-  margin-left: 5%;
+  margin-left: 0%;
   margin-bottom: 5%;
+  font-size: large;
 }
 
 .open-content .text h1,
@@ -433,6 +472,32 @@ p {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.open-content .text p {
+  padding-bottom: 50px;
+  font-weight: 500;
+}
+
+.open-content .text a {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #4c03ac;
+  padding: 15px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0px 12px 12px 0px;
+  font-size: 1.1rem;
+}
+
+.open-content .text a:hover {
+  background-color: #ff0062;
+}
+
+.open-content .text h1 {
+  font-family: revampedregular;
+  font-weight: 100;
 }
 
 .close-content {
@@ -505,7 +570,9 @@ p {
   opacity: 0;
 }
 
-.cover11 {
+.cover11,
+.cover12,
+.cover13 {
   transition: transform 300ms ease-in-out;
 }
 
@@ -533,6 +600,221 @@ p {
   }
 
   .open-content img {
+    margin-top: 40px;
+  }
+  .open-content {
+    flex-direction: column;
+  }
+}
+
+/*** Non Technical Events ****/
+
+/* The open page content */
+.open-content2 {
+  width: 100%;
+  z-index: 110;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  background: #fff;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  width: 90%;
+}
+
+.open-content2 img {
+  position: relative;
+  width: 50%;
+  height: 60%;
+  margin-left: 3%;
+  margin-top: 80px;
+  z-index: 5;
+}
+
+.open-content2 .text2 {
+  /* background: #fff; */
+  margin-top: -55%;
+  padding: 60% 5% 5% 5%;
+  width: 80%;
+  margin-left: 0%;
+  margin-bottom: 5%;
+  font-size: large;
+}
+
+.open-content2 .text2 h1,
+.open-content2 .text2 p {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.open-content2 .text2 p {
+  padding-bottom: 50px;
+  font-weight: 500;
+}
+
+.open-content2 .text2 a {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #4c03ac;
+  padding: 15px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0px 12px 12px 0px;
+  font-size: 1.1rem;
+}
+
+.open-content2 .text2 a:hover {
+  background-color: #ff0062;
+}
+
+.open-content2 .text2 h1 {
+  font-family: revampedregular;
+  font-weight: 100;
+}
+
+.close-content2 {
+  display: block;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 30px;
+  height: 30px;
+}
+
+.close-content2 span {
+  background: #222;
+  width: 30px;
+  height: 6px;
+  display: block;
+  position: absolute;
+  top: 14px;
+}
+
+.open-content2 {
+  transition: opacity 200ms linear 0ms;
+}
+
+.open-content2.open {
+  opacity: 1;
+  pointer-events: all;
+  transition-delay: 1000ms;
+}
+
+/* 
+** Media Queries
+*/
+
+@media screen and (max-width: 600px) {
+  .open-content2 img {
+    margin-top: 40px;
+  }
+}
+
+/*** Workshops ****/
+
+/* The open page content */
+.open-content3 {
+  width: 100%;
+  z-index: 110;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  background: #fff;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  width: 90%;
+}
+
+.open-content3 img {
+  position: relative;
+  width: 50%;
+  height: 60%;
+  margin-left: 3%;
+  margin-top: 80px;
+  z-index: 5;
+}
+
+.open-content3 .text3 {
+  /* background: #fff; */
+  margin-top: -55%;
+  padding: 60% 5% 5% 5%;
+  width: 80%;
+  margin-left: 0%;
+  margin-bottom: 5%;
+  font-size: large;
+}
+
+.open-content3 .text3 h1,
+.open-content3 .text3 p {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.open-content3 .text3 p {
+  padding-bottom: 50px;
+  font-weight: 500;
+}
+
+.open-content3 .text3 a {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #4c03ac;
+  padding: 15px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0px 12px 12px 0px;
+  font-size: 1.1rem;
+}
+
+.open-content3 .text3 a:hover {
+  background-color: #ff0062;
+}
+
+.open-content3 .text3 h1 {
+  font-family: revampedregular;
+  font-weight: 100;
+}
+
+.close-content3 {
+  display: block;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 30px;
+  height: 30px;
+}
+
+.close-content3 span {
+  background: #222;
+  width: 30px;
+  height: 6px;
+  display: block;
+  position: absolute;
+  top: 14px;
+}
+
+.open-content3 {
+  transition: opacity 200ms linear 0ms;
+}
+
+.open-content3.open {
+  opacity: 1;
+  pointer-events: all;
+  transition-delay: 1000ms;
+}
+
+/* 
+** Media Queries
+*/
+
+@media screen and (max-width: 600px) {
+  .open-content3 img {
     margin-top: 40px;
   }
 }
