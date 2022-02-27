@@ -36,7 +36,8 @@ html {
   transition: 1s cubic-bezier(0.5, 0, 0.5, 1);
 }
 
-.page {
+.page,
+.page2 {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -384,9 +385,6 @@ p {
 }
 
 .container110 {
-  /* max-width: 900px; */
-  /* margin: 0 auto; */
-  /* display: flex; */
   position: relative;
   left: calc(100% / 2 - 315px);
   /* display: flex; */
@@ -413,10 +411,9 @@ p {
 }
 
 /* Cards */
+
 .card-column {
-  /* width: 32%; */
   float: left;
-  /* padding: 4%; */
   box-sizing: border-box;
 }
 
@@ -911,5 +908,114 @@ p {
 @media screen and (max-width: 600px) {
   .open-content3 img {
     margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .page2 {
+    height: 100%;
+  }
+
+  .cardss {
+    flex-direction: column;
+    padding-top: 45px;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .card1,
+  .card2,
+  .card3 {
+    transform: rotatex(0deg);
+    margin: 20px;
+  }
+
+  .card3 {
+    margin-bottom: 120px;
+  }
+
+  .title2 {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title2 h1 {
+    font-size: 2.2rem;
+    font-family: "revampedregular";
+    font-weight: 100;
+    margin: 10px;
+    padding-top: 18px;
+    color: white;
+    position: relative;
+    text-shadow: 2px 2px 10px rgb(0, 136, 255);
+  }
+
+  .title2 img {
+    width: 50px;
+    height: 50px;
+    margin: 65px 5px 0px 0px;
+  }
+  .container110 {
+    left: calc(100% / 2 - 180px);
+  }
+
+  .container112 {
+    left: calc(100% / 2 - 180px);
+  }
+
+  .container113 {
+    left: calc(100% / 2 - 180px);
+  }
+
+  #cent {
+    top: 0;
+  }
+
+  .open-content,
+  .open-content2,
+  .open-content3 {
+    flex-direction: column;
+  }
+
+  .open-content img,
+  .open-content2 img,
+  .open-content3 img {
+    width: 60%;
+    height: 50%;
+    left: calc(100% / 2 - 120px);
+    margin-top: 40px;
+    z-index: 5;
+  }
+
+  .open-content .text h1,
+  .open-content .text p,
+  .open-content2 .text2 h1,
+  .open-content2 .text2 p,
+  .open-content3 .text3 h1,
+  .open-content3 .text3 p {
+    width: 100%;
+    position: relative;
+    left: calc(100% / 2 - 90px);
+    text-align: left;
+    text-align: justify;
+  }
+  .open-content .text h1,
+  .open-content2 .text2 h1,
+  .open-content3 .text3 h1 {
+    text-align: center;
+  }
+  .open-content .text a,
+  .open-content2 .text2 a,
+  .open-content3 .text3 a {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    position: relative;
+    left: calc(100% / 2 - 10px);
   }
 }

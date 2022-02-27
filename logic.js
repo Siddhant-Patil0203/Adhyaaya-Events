@@ -456,7 +456,8 @@ function onCardClick(card, i) {
   } else if (i >= 4 && i <= 9) openContent2.className += " open";
   else openContent3.className += " open";
 
-  body.style.overflow = "hidden";
+  if (innerWidth <= 700) body.style.overflow = "scroll";
+  else body.style.overflow = "hidden";
 }
 
 /*
@@ -574,21 +575,40 @@ function animateCoverBack(card) {
 
 function setCoverPosition(cardPosition, i) {
   // style the cover so it is in exactly the same position as the card
-  if (i < 4) {
-    cover.style.left = cardPosition.left + "px";
-    cover.style.top = cardPosition.top + "px";
-    cover.style.width = cardPosition.width + "px";
-    cover.style.height = cardPosition.height + "px";
-  } else if (i >= 4 && i <= 9) {
-    cover2.style.left = cardPosition.left + "px";
-    cover2.style.top = cardPosition.top + "px";
-    cover2.style.width = cardPosition.width + "px";
-    cover2.style.height = cardPosition.height + "px";
+  if (window.innerWidth <= 700) {
+    if (i < 4) {
+      cover.style.left = cardPosition.left + "px";
+      cover.style.top = cardPosition.top + "px";
+      cover.style.width = cardPosition.width + "px";
+      cover.style.height = "100%";
+    } else if (i >= 4 && i <= 9) {
+      cover2.style.left = cardPosition.left + "px";
+      cover2.style.top = cardPosition.top + "px";
+      cover2.style.width = cardPosition.width + "px";
+      cover2.style.height = "100%";
+    } else {
+      cover3.style.left = cardPosition.left + "px";
+      cover3.style.top = cardPosition.top + "px";
+      cover3.style.width = cardPosition.width + "px";
+      cover3.style.height = "100%";
+    }
   } else {
-    cover3.style.left = cardPosition.left + "px";
-    cover3.style.top = cardPosition.top + "px";
-    cover3.style.width = cardPosition.width + "px";
-    cover3.style.height = cardPosition.height + "px";
+    if (i < 4) {
+      cover.style.left = cardPosition.left + "px";
+      cover.style.top = cardPosition.top + "px";
+      cover.style.width = cardPosition.width + "px";
+      cover.style.height = cardPosition.height + "px";
+    } else if (i >= 4 && i <= 9) {
+      cover2.style.left = cardPosition.left + "px";
+      cover2.style.top = cardPosition.top + "px";
+      cover2.style.width = cardPosition.width + "px";
+      cover2.style.height = cardPosition.height + "px";
+    } else {
+      cover3.style.left = cardPosition.left + "px";
+      cover3.style.top = cardPosition.top + "px";
+      cover3.style.width = cardPosition.width + "px";
+      cover3.style.height = cardPosition.height + "px";
+    }
   }
 }
 
@@ -719,7 +739,8 @@ function cardOpenEvent(i) {
   else if (i >= 4 && i <= 9) openContent2.className += " open";
   else openContent3.className += " open";
 
-  body.style.overflow = "hidden";
+  if (innerWidth <= 700) body.style.overflow = "scroll";
+  else body.style.overflow = "hidden";
 
   closeContent.addEventListener("click", function () {
     openContent.className = openContent.className.replace(" open", "");
