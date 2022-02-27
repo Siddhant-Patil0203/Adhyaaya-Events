@@ -139,7 +139,7 @@ gsap
   // Virtual Placements
   .fromTo(
     ".orb21",
-    { xPercent: -45, yPercent: -10 },
+    { xPercent: -45, yPercent: -50 },
     {
       motionPath: {
         path: function () {

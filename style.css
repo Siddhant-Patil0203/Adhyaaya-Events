@@ -421,6 +421,12 @@ p {
 .card-color-3 {
   background-color: #888da7;
 }
+.card-color-7 {
+  background-color: rgb(230, 201, 36);
+}
+.card-color-8 {
+  background-color: rgb(143, 209, 45);
+}
 
 /* The cover (expanding background) */
 .cover11,
