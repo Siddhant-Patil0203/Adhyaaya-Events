@@ -450,7 +450,7 @@ function onCardClick(card, i) {
     // document.getElementById("all_events").style.display = "none";
     // document.getElementById("non_technical_events").style.display = "none";
     // document.getElementById("workshops").style.display = "none";
-  } else if (i >= 4 && i <= 11) openContent2.className += " open";
+  } else if (i >= 4 && i <= 9) openContent2.className += " open";
   else openContent3.className += " open";
 
   body.style.overflow = "hidden";
@@ -576,7 +576,7 @@ function setCoverPosition(cardPosition, i) {
     cover.style.top = cardPosition.top + "px";
     cover.style.width = cardPosition.width + "px";
     cover.style.height = cardPosition.height + "px";
-  } else if (i >= 4 && i <= 11) {
+  } else if (i >= 4 && i <= 9) {
     cover2.style.left = cardPosition.left + "px";
     cover2.style.top = cardPosition.top + "px";
     cover2.style.width = cardPosition.width + "px";
@@ -618,7 +618,7 @@ function scaleCoverToFillWindow(cardPosition, i) {
       "px, " +
       offsetY +
       "px, 0px)";
-  } else if (i >= 4 && i <= 11) {
+  } else if (i >= 4 && i <= 9) {
     cover2.style.transform =
       "scaleX(" +
       scaleX +
@@ -713,110 +713,46 @@ function cardOpenEvent(i) {
   animateOtherCards(cards[i], true);
   // add the open class to the page content
   if (i < 4) openContent.className += " open";
-  else if (i >= 4 && i <= 11) openContent2.className += " open";
+  else if (i >= 4 && i <= 9) openContent2.className += " open";
   else openContent3.className += " open";
 
   body.style.overflow = "hidden";
+
   closeContent.addEventListener("click", function () {
     openContent.className = openContent.className.replace(" open", "");
-    // animate the cover back to the original position card and size
-    var cardPosition = cards[i].getBoundingClientRect();
-    // the original card may be in a different position, because of scrolling, so the cover position needs to be reset before scaling back down
-    setCoverPosition(cardPosition);
-    scaleCoverToFillWindow(cardPosition);
-    // animate scale back to the card size and position
-    cover.style.transform =
-      "scaleX(" +
-      1 +
-      ") scaleY(" +
-      1 +
-      ") translate3d(" +
-      0 +
-      "px, " +
-      0 +
-      "px, 0px)";
-    setTimeout(function () {
-      // set content back to empty
-      openContentText.innerHTML = "";
-      openContentImage.src = "";
-      // style the cover to 0x0 so it is hidden
-      cover.style.width = "0px";
-      cover.style.height = "0px";
-      pageIsOpen = false;
-      // remove the clicked class so the card animates back in
-      cards[i].className = cards[i].className.replace(" clicked", "");
-    }, 301);
+    openContent2.className = openContent2.className.replace(" open", "");
+    openContent3.className = openContent3.className.replace(" open", "");
 
+    animateCoverBack(cards[i]);
+    cards[i].className = cards[i].className.replace(" clicked", "");
     // animate in other cards
     animateOtherCards(cards[i], false);
+
     body.style.overflow = "scroll";
   });
   closeContent2.addEventListener("click", function () {
+    openContent.className = openContent.className.replace(" open", "");
     openContent2.className = openContent2.className.replace(" open", "");
-    // animate the cover back to the original position card and size
-    var cardPosition = cards[i].getBoundingClientRect();
-    // the original card may be in a different position, because of scrolling, so the cover position needs to be reset before scaling back down
-    setCoverPosition(cardPosition);
-    scaleCoverToFillWindow(cardPosition);
-    // animate scale back to the card size and position
-    cover2.style.transform =
-      "scaleX(" +
-      1 +
-      ") scaleY(" +
-      1 +
-      ") translate3d(" +
-      0 +
-      "px, " +
-      0 +
-      "px, 0px)";
-    setTimeout(function () {
-      // set content back to empty
-      openContentText2.innerHTML = "";
-      openContentImage2.src = "";
-      // style the cover to 0x0 so it is hidden
-      cover2.style.width = "0px";
-      cover2.style.height = "0px";
-      pageIsOpen = false;
-      // remove the clicked class so the card animates back in
-      cards[i].className = cards[i].className.replace(" clicked", "");
-    }, 301);
+    openContent3.className = openContent3.className.replace(" open", "");
 
+    animateCoverBack(cards[i]);
+    cards[i].className = cards[i].className.replace(" clicked", "");
     // animate in other cards
     animateOtherCards(cards[i], false);
+
     body.style.overflow = "scroll";
   });
   closeContent3.addEventListener("click", function () {
+    openContent.className = openContent.className.replace(" open", "");
+    openContent2.className = openContent2.className.replace(" open", "");
     openContent3.className = openContent3.className.replace(" open", "");
-    // animate the cover back to the original position card and size
-    var cardPosition = cards[i].getBoundingClientRect();
-    // the original card may be in a different position, because of scrolling, so the cover position needs to be reset before scaling back down
-    setCoverPosition(cardPosition);
-    scaleCoverToFillWindow(cardPosition);
-    // animate scale back to the card size and position
-    cover3.style.transform =
-      "scaleX(" +
-      1 +
-      ") scaleY(" +
-      1 +
-      ") translate3d(" +
-      0 +
-      "px, " +
-      0 +
-      "px, 0px)";
-    setTimeout(function () {
-      // set content back to empty
-      openContentText3.innerHTML = "";
-      openContentImage3.src = "";
-      // style the cover to 0x0 so it is hidden
-      cover3.style.width = "0px";
-      cover3.style.height = "0px";
-      pageIsOpen = false;
-      // remove the clicked class so the card animates back in
-      cards[i].className = cards[i].className.replace(" clicked", "");
-    }, 301);
 
+    animateCoverBack(cards[i]);
+    cards[i].className = cards[i].className.replace(" clicked", "");
     // animate in other cards
     animateOtherCards(cards[i], false);
+
     body.style.overflow = "scroll";
   });
+  window.addEventListener("resize", resize);
 }

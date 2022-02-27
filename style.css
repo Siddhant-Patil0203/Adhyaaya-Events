@@ -312,7 +312,7 @@ p {
   /* margin: 0 auto; */
   /* display: flex; */
   position: relative;
-  left: calc(100% / 2 - 750px);
+  left: calc(100% / 2 - 520px);
   /* display: flex; */
 }
 
@@ -322,7 +322,7 @@ p {
   /* display: flex; */
   position: relative;
   left: calc(100% / 2 - 500px);
-  top: 13vh;
+  /* top: 13vh; */
 
   /* display: flex; */
 }
@@ -736,6 +736,10 @@ p {
   margin-left: 3%;
   margin-top: 80px;
   z-index: 5;
+}
+
+#cent {
+  top: 15vh;
 }
 
 .open-content3 .text3 {
