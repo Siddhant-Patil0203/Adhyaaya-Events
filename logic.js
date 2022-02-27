@@ -8,8 +8,11 @@ window.onresize = window.onload = function () {
   gsap.set(".m1_stage", { x: "50vw", opacity: 1 });
 };
 
+if (innerWidth <= 700) var time = 13;
+else var time = 45;
+
 gsap
-  .timeline({ defaults: { duration: 45 } })
+  .timeline({ defaults: { duration: time } })
   .from(".main1", { duration: 1, autoAlpha: 0, ease: "power1.inOut" }, 0)
   .fromTo(
     ".m1_cGroup",
