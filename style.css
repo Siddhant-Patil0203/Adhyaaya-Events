@@ -917,6 +917,11 @@ p {
     height: 100%;
   }
 
+  #open-content-image,
+  #open-content-image2 {
+    width: 60%;
+  }
+
   .cardss {
     flex-direction: column;
     padding-top: 45px;
@@ -1008,6 +1013,7 @@ p {
   .open-content2 .text2 h1,
   .open-content3 .text3 h1 {
     text-align: center;
+    font-size: 1.8rem;
   }
   .open-content .text a,
   .open-content2 .text2 a,
