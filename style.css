@@ -49,8 +49,7 @@ html {
 #non_technical_events,
 #workshops {
   width: 100%;
-  height: max-content;
-  max-height: 1200px;
+  height: 100%;
 }
 
 /* Scroll down */
