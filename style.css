@@ -901,9 +901,10 @@ p {
   transition-delay: 1000ms;
 }
 
-/* 
-** Media Queries
-*/
+#open-content-image,
+#open-content-image2 {
+  width: 40%;
+}
 
 @media screen and (max-width: 600px) {
   .open-content3 img {
