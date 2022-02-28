@@ -45,6 +45,14 @@ html {
   margin: 0;
 }
 
+#technical_events,
+#non_technical_events,
+#workshops {
+  width: 100%;
+  height: max-content;
+  max-height: 1200px;
+}
+
 /* Scroll down */
 .scroll_down {
   position: relative;
@@ -912,7 +920,7 @@ p {
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1150px) {
   .page2 {
     height: 100%;
   }
